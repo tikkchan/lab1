@@ -88,13 +88,52 @@ def test_sign():
 def test_solve_qube2():
     res = func2.solve_qube2(12, 4, 8, 5)
     assert res == (
-    -1.8623879412594293, (0.13119397062971466 + 1.1275887015236796j), (0.13119397062971452 - 1.1275887015236796j))
+        -1.8623879412594293, (0.13119397062971466 + 1.1275887015236796j), (0.13119397062971452 - 1.1275887015236796j))
 
-#def test_show_number(monkeypatch):
-#    def mocked_add(num1, num2):
-#        sumn = 2 + 2
-#        print(sumn)
-#        return sumn
-#
-#    monkeypatch.setattr(sys.modules[__name__], 'add', mocked_add)
-#    assert main.select_func(1) == 4
+
+def test_integr_add():
+    assert main.select_func(1, 2, 2, 0, 0) == 4
+
+
+def test_integr_subtract():
+    assert main.select_func(2, 2, 2, 0, 0) == 0
+
+
+def test_integr_multiply():
+    assert main.select_func(3, 2, 3, 0, 0) == 6
+
+
+def test_integr_divide():
+    assert main.select_func(4, 2, 2, 0, 0) == 1
+
+
+def test_integr_exponent():
+    assert main.select_func(5, 2, 3, 0, 0) == 8
+
+
+def test_integr_sqrt():
+    assert main.select_func(6, 16, 0, 0, 0) == 4
+
+
+def test_integr_cbrt():
+    assert main.select_func(7, 27, 0, 0, 0) == 3
+
+
+def test_integr_fact():
+    assert main.select_func(8, 5, 0, 0, 0) == 120
+
+
+def test_integr_solve_qube2():
+    assert main.select_func(9, 12, 4, 8, 5) == (
+        -1.8623879412594293, (0.13119397062971466 + 1.1275887015236796j), (0.13119397062971452 - 1.1275887015236796j))
+
+
+def test_integr_divide_ex():
+    try:
+        main.select_func(4, 2, 0, 0, 0)
+    except ZeroDivisionError as e:
+        assert e
+
+def test_integr_sqrt_ex():
+    assert main.select_func(6, -4, 0, 0, 0) == "Только рациональные числа"
+
