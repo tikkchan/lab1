@@ -25,7 +25,7 @@ def main():
                 num3 = 0
                 num4 = 0
             elif select <= 8:
-                num1 = int(input("Введите число 1: "))
+                num1 = int(input("Введите число: "))
                 num2 = 0
                 num3 = 0
                 num4 = 0
