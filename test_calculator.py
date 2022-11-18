@@ -4,6 +4,7 @@ import pytest
 import main
 import func
 import func2
+from func import add
 
 
 def test_add():
@@ -89,21 +90,11 @@ def test_solve_qube2():
     assert res == (
     -1.8623879412594293, (0.13119397062971466 + 1.1275887015236796j), (0.13119397062971452 - 1.1275887015236796j))
 
-
-def test_sum_1():
-    select = 1
-    res = main.select_func(select)
-    assert res == 4
-
-def test_show_number(monkeypatch):
-
-    def mocked_show_number(num: int):
-        print('Mocked func')
-        return 2
-
-    def mocked_show_number_2(num: int):
-        print('Mocked func')
-        return 2
-
-    monkeypatch.setattr(sys.modules[__name__], 'show_number', mocked_show_number, mocked_show_number_2)
-    assert main.select_func(1) == 4
+#def test_show_number(monkeypatch):
+#    def mocked_add(num1, num2):
+#        sumn = 2 + 2
+#        print(sumn)
+#        return sumn
+#
+#    monkeypatch.setattr(sys.modules[__name__], 'add', mocked_add)
+#    assert main.select_func(1) == 4

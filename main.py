@@ -27,7 +27,6 @@ def main():
 
 def select_func(select):
     if select == 1:
-        print("Вы выбрали функцию сложения")
         num1 = int(input("Введите число 1: "))
         num2 = int(input("Введите число 2: "))
         return(func.add(num1, num2))
